@@ -135,4 +135,10 @@ Input check (XSS protection)
   
 ## 3. Frontend App
 
-Flutter
+Flutter (last stable version)
+
+#### Open points
+
+Anonymous login vs in-app login vs external provider login/auth (gmail, instagram,..). Affects backend.
+
+????
