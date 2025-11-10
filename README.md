@@ -7,7 +7,8 @@ Always know where the situa is
 
 * DB and db plugins
   
-  PostgreSQL 
+  PostgreSQL
+  
   PostGIS - postgres plugin to easily query gps location
   
 * Backend API
@@ -127,6 +128,8 @@ GET /messages?lat=X&lon=Y[&radius=5000]
 #### Open points
 
 User Create/login -> Better to use an auth provider (IG, google, etc..)
+
+Comments Endpoint
 
 Rate limiting (Spam prevention)
 
