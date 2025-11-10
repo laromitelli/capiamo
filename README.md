@@ -5,20 +5,20 @@ Always know where the situa is
 
 ## Environment
 
-* Frontend
-  
-  Flutter (Dart)
-
-* Backend API
-  
-  FastAPI (Python)
-
 * DB and db plugins
   
   PostgreSQL 
   PostGIS - postgres plugin to easily query gps location
+  
+* Backend API
+  
+  FastAPI (Python)
 
-* Production Environment
+* Frontend
+  
+  Flutter (Dart)
+
+* Production (and dev) Environment
 
   Private server (temporary) 93.55.240.107 - rasbpberry/linux like environment
   
@@ -71,3 +71,68 @@ PostGIS v. 3.6.0
 Comments
 
 Data Retention (crontab, etc..)
+
+  
+## 2. Backend
+
+Python 3.12
+
+fastapi 0.102.0
+
+Other dependencies (uvicorn?, sqlalchemy?,..)
+
+#### Endpoints
+
+##### 1. Message save
+  
+
+    POST /messages
+  
+      {
+        "user": "",
+        "message": "",
+        "lon": "",
+        "lan": ""
+      }
+    
+  Response:
+
+  200/400/500
+
+
+
+##### 2. Messages retrieve
+  
+
+GET /messages?lat=X&lon=Y[&radius=5000]
+  
+
+  Response
+  
+  200/404/400/500
+
+    body:
+  
+
+      [
+        {
+          "lan": "",
+          "lon": "",
+          "message": ""
+        },
+        ...
+      ]
+
+
+#### Open points
+
+User Create/login -> Better to use an auth provider (IG, google, etc..)
+
+Rate limiting (Spam prevention)
+
+Input check (XSS protection)
+
+  
+## 3. Frontend App
+
+Flutter
