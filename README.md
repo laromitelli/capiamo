@@ -136,9 +136,18 @@ Rate limiting (Spam prevention)
 Input check (XSS protection)
 
   
-## 3. Frontend App
+## 3. Frontend App (work in progress)
 
 Flutter (last stable version)
+
+#### App Sections
+
+##### 1. Login
+##### 2. Home - Map - Markers around me (clickable) - Add button
+##### 3. Form to add new Event  
+##### 4. Admin page (hide profile picture - Update username)
+
+<img width="1536" height="1024" alt="d7f83dde-28f1-42ba-9098-c39010bf1e86" src="https://github.com/user-attachments/assets/caf979a3-4c02-4293-9c89-efe866d4baa5" />
 
 #### Open points
 
