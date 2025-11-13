@@ -1,2 +1,0 @@
-# Capiamo APP
-## Backend
