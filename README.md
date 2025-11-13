@@ -87,64 +87,90 @@ Other dependencies (uvicorn?, sqlalchemy?,..)
 #### Endpoints
 
 
-##### 1. User save
-  
+##### 1. User save/login/auth
+    
+    CURL Example:
+        curl -u <usr>:<psw> -X POST <IP>:<PORT>/users -H "Content-Type: application/json" -d '{"user_id": "usr_id", "name": "usr", "profile_uri": "http://profile_pic", "hide_pic": false}'
+        
     PUT /users
   
       {
-        "user_id": "",
-        "displayed_name": "",
-        "profile_picture_uri": ""
+        "user_id": "id",
+        "name": "name",
+        "profile_uri": "pic",
+        "hide_pic": false,
       }
     
   Response:
 
-  200/400/500
+  200/500
+
+      {
+        "id":"3b5f66fd-8419-4e08-9036-8df389f421cf",
+        "user_id":"abc123",
+        "displayed_name":"usr",
+        "profile_picture_uri":"http://profile_pic",
+        "hide_profile_picture":true,
+        "created_at":"2025-11-13T12:17:01.192533",
+        "updated_at":"2025-11-13T15:55:53.107198"
+      }
   
 ##### 2. Message save
   
-
+    curl -u <usr>:<psw> -X POST <IP>:<PORT>/messages -H "Content-Type: application/json" -d '{"user_id": "3b5f66fd-8419-4e08-9036-8df389f421cf", "message": "txt msg", "lat": 45.464664, "lon": 9.188540}'
     POST /messages
   
       {
-        "user": "",
-        "message": "",
-        "lon": "",
-        "lan": ""
+        "user_id": "id",
+        "message": "msg",
+        "lon": "45.1",
+        "lan": "9.6"
       }
     
   Response:
 
-  200/400/500
+  200/500
+
+      { 
+        "id":"900adac2-0751-4fed-979e-d78c41803bec",
+        "user_id":"id",
+        "message":"msg",
+        "lat":45.1,
+        "lon":9.6,
+        "created_at":"2025-11-13T15:59:56.746160",
+        "expires_at":"2025-11-13T19:59:56.746160"
+      }
 
 
 
-##### 3. Messages retrieve
+##### 3. Non-expired messages retrieve
   
+curl -u <usr>:<psw> -X POST <IP>:<PORT>/messages/near?lat=45.464664&lon=9.188&radius=1000
 
 GET /messages?lat=X&lon=Y[&radius=5000]
   
 
   Response
   
-  200/404/400/500
+  200/500
 
     body:
   
-
-      [
-        {
-          "lan": "",
-          "lon": "",
-          "message": ""
-        },
+     [
+       {
+         "id":"900adac2-0751-4fed-979e-d78c41803bec",
+         "user_id":"3b5f66fd-8419-4e08-9036-8df389f421cf",
+         "message":"situa text msg",
+         "lat":45.464664,
+         "lon":9.18851,
+         "created_at":"2025-11-13T15:59:56.746160",
+         "expires_at":"2025-11-13T19:59:56.746160"
+       }
         ...
-      ]
+     ]
 
 
 #### Open points
-
-User Create/login -> Better to use an auth provider (IG, google, etc..)
 
 Comments Endpoint
 
