@@ -37,7 +37,8 @@ PostGIS v. 3.6.0
       displayed_name TEXT NOT NULL,
       profile_picture_uri TEXT NOT NULL,
       hide_profile_picture BOOLEAN,
-      created_at TIMESTAMP DEFAULT now()
+      created_at TIMESTAMP DEFAULT now(),
+      updated_at TIMESTAMP DEFAULT now()
     );
 
     CREATE TABLE messages (
