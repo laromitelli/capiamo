@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                   ElevatedButton.icon(
                     icon: const Icon(Icons.camera_alt),
                     label: const Text(
-                      'Continue with Instagram',
+                      'Continue with Facebook',
                       style: TextStyle(fontSize: 16),
                     ),
                     style: ElevatedButton.styleFrom(
