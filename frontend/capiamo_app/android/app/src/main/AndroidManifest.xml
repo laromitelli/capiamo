@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.capiamo_app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Internet required for backend calls + FB/IG login -->
+    <!-- Internet required -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -19,37 +18,30 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
 
-            <!-- Flutter UI initialization theme -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- ========================= -->
-        <!--  FACEBOOK / INSTAGRAM SDK -->
-        <!-- ========================= -->
-
-        <!-- These values come from strings.xml (safe, no hardcoding) -->
+        <!-- ======== FACEBOOK / INSTAGRAM SDK ========= -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+            android:value="@string/facebook_app_id"/>
 
         <meta-data
             android:name="com.facebook.sdk.ClientToken"
-            android:value="@string/facebook_client_token" />
+            android:value="@string/facebook_client_token"/>
 
-        <!-- Facebook Login Activity -->
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"/>
 
-        <!-- Chrome custom tab for login redirect -->
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
@@ -57,19 +49,17 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <!-- fb + app_id (set in strings.xml) -->
                 <data android:scheme="@string/fb_login_protocol_scheme"/>
             </intent-filter>
         </activity>
 
-        <!-- Flutter required metadata -->
+        <!-- Required for Flutter -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
 
     </application>
 
-    <!-- Required for ProcessTextPlugin -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
