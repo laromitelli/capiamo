@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Capiamo</string>
+
+    <!-- Facebook Login configuration (safe to hardcode) -->
+    <string name="facebook_app_id">1382513777219265</string>
+    <string name="fb_login_protocol_scheme">fb1382513777219265</string>
+    <string name="facebook_client_token">4400ca0d105b41f6bc53de84b1158bfe</string>
+</resources>
